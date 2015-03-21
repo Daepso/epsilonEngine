@@ -10,6 +10,7 @@ public:
 	bool link();
 	bool activate() const;
 	template<typename U> void sendUniform(const char * name, const U & uni); //Not implemented
+	GLuint id() const;
 	bool valid() const;
 	void infoLog();
 private:

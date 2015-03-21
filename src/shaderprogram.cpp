@@ -1,6 +1,7 @@
 #include "shaderprogram.h"
 
-#include <assert.>
+#include <assert.h>
+#include <iostream>
 
 ShaderProgram::ShaderProgram() 
 :is_valid_(false), id_(-1)
