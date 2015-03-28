@@ -16,10 +16,12 @@ bool Shader::loadFromFile(const char * filename) {
         return false;
 	}
 
-	file.seekg( 0, std::ios::end );
-	std::streampos fsize = file.tellg();
-	char * src = new char[fsize];
+	file.seekg(0, file.end);
+	int fsize = file.tellg();
+	file.seekg(0, file.beg);
+	char * src = new char[fsize+1];
 	file.read(src,fsize);
+	src[fsize] = '\0';
 	bool res = loadFromSource(src);
 	delete[] src;
 	return res;
