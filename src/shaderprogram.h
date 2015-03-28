@@ -6,6 +6,7 @@
 class ShaderProgram {
 public:
 	ShaderProgram();
+	void init();
 	bool attachShader(Shader & s);
 	bool link();
 	bool activate() const;
@@ -14,6 +15,7 @@ public:
 	bool valid() const;
 	void infoLog();
 private:
+	bool is_init_;
 	bool is_valid_;
 	GLuint id_;
 };

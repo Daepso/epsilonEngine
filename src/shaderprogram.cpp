@@ -4,12 +4,20 @@
 #include <iostream>
 
 ShaderProgram::ShaderProgram() 
-:is_valid_(false), id_(-1)
+:is_valid_(false), is_init_(false), id_(-1)
 {
-	id_ = glCreateProgram();
+}
+
+void ShaderProgram::init() {
+	if(!is_init_) {
+		id_ = glCreateProgram();
+		is_init_ = true;
+	}
 }
 
 bool ShaderProgram::attachShader(Shader & s) {
+	if(!is_init_)
+		init();
 	glAttachShader(id_,s.id());
 }
 
